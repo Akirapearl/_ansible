@@ -1,0 +1,35 @@
+---
+
+# Update repositories 
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: update repository index apt
+    apt:
+      update_cache: yes
+    when: ansible_distribution == ["Ubuntu", "Debian"]
+
+# Install web service (apache http server) and php compatibility
+- hosts: web
+  become: true
+  tasks:
+
+  - name: install apache2 package to ubuntu vm
+    apt:
+      name: apache2
+      state: latest
+
+  - name: add php support for apache
+    apt:
+      name: libapache2-mod-php
+      state: latest
+
+# Add software to Debian - IDE for communication with Ubuntu Server
+- hosts: work
+  become: true
+  tasks:
+
+  - name: Install atom on Debian Workstation
+    apt:
+      deb: https://atom.io/download/deb
