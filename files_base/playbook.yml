@@ -25,11 +25,54 @@
       name: libapache2-mod-php
       state: latest
 
-# Add software to Debian - IDE for communication with Ubuntu Server
+
+##############################
+############ NFS #############
+
+#Server
+
+# Copy existent file (/etc/exports)
+# Using the inventory to use a single target for this task (Web - ubuntu server)
+
+  - name: add exports file to server
+    ansible.builtin.copy:
+      src: /home/usuario/Proyectos/_ansible/files_base/extra/exports
+      dest: /etc/exports
+      owner: root
+      group: root
+      mode: '0644'
+      backup: yes
+
+# Client
+# Take fstab for backup and modify the same partitions and mount points
+
 - hosts: work
   become: true
   tasks:
 
+  - name: Store file into /extra directory from client
+    ansible.builtin.fetch:
+      src: /etc/fstab
+      dest: /home/usuario/Proyectos/_ansible/files_base/extra/
+
+
+
+##############################
+##############################
+
+
+# Add software to Debian - IDE for communication with Ubuntu Server
+
   - name: Install atom on Debian Workstation
     apt:
       deb: https://atom.io/download/deb
+
+#To-do list
+
+# mysql-server
+# mod-php-mysql? - usuario para ide?
+# nfs 192.168.10.5:/var/www/html - 192.168.10.9:~/nfs/dev
+#	"sub-task"
+#	- copy exports file (server)
+#	- copy/modify fstab (client)
+
