@@ -32,7 +32,8 @@
 #Server
 
 # Copy existent file (/etc/exports)
-# Using the inventory to use a single target for this task (Web - ubuntu server)
+# Inventory to use a single target for this task (Web - Ubuntu server 20.04 LTS)
+# Keeps a backup into the server itself
 
   - name: add exports file to server
     ansible.builtin.copy:
@@ -44,7 +45,9 @@
       backup: yes
 
 # Client
-# Take fstab for backup and modify the same partitions and mount points
+
+# Take fstab file - backup
+# Inventory to use single target for this task (Work - Debian 10)
 
 - hosts: work
   become: true
@@ -67,12 +70,14 @@
     apt:
       deb: https://atom.io/download/deb
 
+
+
 #To-do list
 
 # mysql-server
 # mod-php-mysql? - usuario para ide?
 # nfs 192.168.10.5:/var/www/html - 192.168.10.9:~/nfs/dev
+#
 #	"sub-task"
-#	- copy exports file (server)
-#	- copy/modify fstab (client)
+#	- copy , modify & introduce fstab (client)
 
