@@ -10,5 +10,5 @@ This repository contains my current ansible configurations to deploy multiple sc
         (/var/www/html) with a host client (also running debian/ubuntu based) via nfs ,that path will be mounted into non-root user's home directory.
         The client will be provided with an open source ide to work with (Atom).
         
-        ![Image of Network](https://)
+        ![Image of Network](https://github.com/Akirapearl/_ansible/blob/main/files_base/Topology.png)
         
