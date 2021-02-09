@@ -2,7 +2,7 @@
 
 This repository contains my current ansible configurations to deploy multiple scenarios each of them with different topology.
 
-**Ordered by creation date:
+**Ordered by creation date:**
 
   1. files_base 
         Scenario with two hosts, first one its an Ubuntu based server which runs Apache and shares the default working directory 
