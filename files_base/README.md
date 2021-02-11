@@ -1,5 +1,5 @@
 # How this scenario actually works
-** First of all, im sorry for any english typing error. **
+**First of all, im sorry for any english typing error.**
         
 	0 - This project assumes that you already have basic knowledges about ansible. If not, go to Learn Linux Tv's youtube
 	    channel, it has a free introduction series. 
