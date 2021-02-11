@@ -75,9 +75,7 @@
 #To-do list
 
 # mysql-server
-# mod-php-mysql? - usuario para ide?
-# nfs 192.168.10.5:/var/www/html - 192.168.10.9:~/nfs/dev
+# mod-php-mysql? -specific user for client?
 #
-#	"sub-task"
-#	- copy , modify & introduce fstab (client)
+
 
