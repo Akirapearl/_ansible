@@ -1,0 +1,33 @@
+---
+
+#######################
+#########NFS###########
+
+- hosts: work
+  become: true
+  tasks:
+
+# First task assumes that the already imported fstab file (previous playbook) has been edited with the nfs mountpoint
+
+  - name: Move local fstab to client (added nfs mount point)
+    ansible.builtin.copy:
+      src: /home/usuario/Proyectos/_ansible/files_base/extra/192.168.10.9/etc/fstab
+      dest: /etc/fstab
+      owner: root
+      group: root
+      mode: '0644'
+
+# Once fstab is modified, its time to mount the directory itself
+# This task should be the same as executing "sudo mount 192.168.10.5:/var/www/html /home/usuario/nfs/
+
+  - name: Mount NFS volume
+    ansible.posix.mount:
+      src: 192.168.10.5:/var/www/html
+      path: /home/usuario/nfs/ 
+      opts: rw,sync
+      state: mounted
+      fstype: nfs
+
+# To be totally transparent, this file works, but once a non-root user modifies a file from an IDE (tested on Atom), the system shows
+# a box that requires root's password to be able to apply any changes.
+######################
