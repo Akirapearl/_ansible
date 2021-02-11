@@ -34,5 +34,6 @@
 	2- Allow non-root user in client to write and change files without root's password
 	3- Introduce Variables to directories, so its "easier" to work arround exports and fstab files.
 
-        ![Working](https://github.com/Akirapearl/_ansible/blob/main/files_base/extra/Test_playbook2_nfs.png)
+        ![Impage of Working](https://github.com/Akirapearl/_ansible/blob/main/files_base/extra/Test_playbook2_nfs.png)
         
+	![Image of Network](https://github.com/Akirapearl/_ansible/blob/main/files_base/Topology.png)
