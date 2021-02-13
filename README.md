@@ -18,4 +18,4 @@ This repository contains my current ansible configurations to deploy multiple sc
         distributions to achieve knowledge about how to handle diferent packages for each distro. Also introducing a backup for the 
         web server, working again under ubuntu server 20.04 LTS (updated to last point release).
         
-        ![Image of Network01](https://github.com/Akirapearl/_ansible/blob/main/files_project01/network01.png)
+        ![Image of Network01](https://github.com/Akirapearl/_ansible/blob/main/files_project01/index.png)
