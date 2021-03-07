@@ -1,0 +1,32 @@
+---
+
+# Update repositories
+
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: update repository index apt
+    apt:
+      update_cache: yes
+    when: ansible_os_family == "Debian"
+
+  - name: update repository index opensuse
+    zypper:
+      name: openssl
+      update_cache: yes
+    when: ansible_distribution == "openSUSE Tumbleweed"
+
+# Update software
+
+  - name: Update all packages on OpenSUSE
+    zypper:
+      name: '*'
+      state: latest
+    when: ansible_distribution == "openSUSE Tumbleweed"
+
+  - name: Update all packages on Ubuntu/Debian
+    apt:
+      name: '*'
+      state: latest
+    when: ansible_distribution == "Debian"
