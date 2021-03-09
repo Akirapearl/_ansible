@@ -30,3 +30,29 @@
       name: '*'
       state: latest
     when: ansible_distribution == "Debian"
+
+# Install apache & php - Ubuntu server
+
+- hosts: web
+  become: true
+  tasks:
+
+  - name: Install apache web server
+    apt:
+      pkg:
+      - apache2
+      - php
+      - libapache2-mod-php
+      state: latest
+# NFS
+
+# Install dns server - Opensuse Tumbleweed
+- hosts: dns
+  become: true
+  tasks:
+
+  - name: Install Dns server - Opensuse
+    zypper:
+      name: dhcp_dns_server
+      type: pattern
+      state: latest
