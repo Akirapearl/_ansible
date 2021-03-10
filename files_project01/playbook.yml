@@ -46,6 +46,15 @@
       state: latest
 # NFS
 
+- hosts: dns
+  become: true
+  tasks:
+
+  - name: Store dns file into /extra directory from server
+    ansible.builtin.fetch:
+      src: /etc/named.conf
+      dest: /home/usuario/Proyectos/_ansible/files_project01/extra/
+
 # Install dns server - Opensuse Tumbleweed
 - hosts: dns
   become: true
